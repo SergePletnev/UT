@@ -47,19 +47,22 @@ public class TriangleNegativeTests {
     public void tstCheckTriangle(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
         Assert.assertFalse(triangle.checkTriangle());
-        Assert.assertEquals(triangle.getMessage(), expected_message);
+        Assert.assertEquals(triangle.getMessage(), expected_message, "[Message \"" + triangle.getMessage() + "\" is " +
+                "not correct. Triangle sides: a=" + a + " b=" + b + " c=" + c + "]");
     }
 
     @Test(expectedExceptions = Exception.class, dataProvider = "negativeTestsProvider")
-    public void testDetectTriangle(double a, double b, double c, String expected_message) {
+    public void tstDetectTriangle(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
         triangle.detectTriangle();
+        Assert.fail("[No exception have been thrown when detecting invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + "]");
     }
 
     @Test(expectedExceptions = Exception.class, dataProvider = "negativeTestsProvider")
     public void tstGetSquare(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
         triangle.getSquare();
+        Assert.fail("No exception have been thrown when getting square of invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + "]");
     }
 
 }

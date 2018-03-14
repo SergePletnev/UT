@@ -43,14 +43,16 @@ public class TrianglePositiveTests {
     @Test(dataProvider = "validTriangleProvider")
     public void tstCheckTriangle(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
-        Assert.assertTrue(triangle.checkTriangle());
-        Assert.assertEquals(triangle.getMessage(), expected_message);
+        Assert.assertTrue(triangle.checkTriangle(), "[Triangle with sides: a=" + a + " b=" + b + " c=" + c + " have been checked incorrectly]");
+        Assert.assertEquals(triangle.getMessage(), expected_message, "[Wrong message when triangle with sides: a=" + a +
+                " b=" + b + " c=" + c + " is valid]");
     }
 
     @Test(dataProvider = "detectTriangleProvider")
     public void tstDetectTriangle(double a, double b, double c, int expectedDetection) {
         this.triangle = new Triangle(a, b, c);
-        Assert.assertEquals(triangle.detectTriangle(), expectedDetection, 0.0001);
+        Assert.assertEquals(triangle.detectTriangle(), expectedDetection, 0.0001, "[Triangle with sides: a=" + a +
+                " b=" + b + " c=" + c + " have been detected incorrectly]");
     }
 
     @Test(expectedExceptions = Exception.class, dataProvider = "validTriangleProvider")
@@ -58,6 +60,7 @@ public class TrianglePositiveTests {
         this.triangle = new Triangle(a, b, c);
         double p = (a + b + c)/2;
         double expected_square = Math.sqrt(p*(p - a)*(p - b)*(p - c));
-        Assert.assertEquals(triangle.getSquare(), expected_square, 0.0001);
+        Assert.assertEquals(triangle.getSquare(), expected_square, 0.0001, "[The square of triangle with sides: a=" + a +
+                " b=" + b + " c=" + c + " have been calculated incorrectly]");
     }
 }
