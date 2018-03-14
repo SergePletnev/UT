@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="Suite" parallel="false">
-    <test name="SampleTestOne">
+    <test name="TriangleTest">
         <classes>
-            <class name="triangle."/>
-            <methods>
-                <exclude name="tstSummarization" />
-            </methods>
+            <class name="triangle.TrianglePositiveTests"/>
+            <class name="triangle.TriangleNegativeTests"/>
         </classes>
     </test>
 </suite>
