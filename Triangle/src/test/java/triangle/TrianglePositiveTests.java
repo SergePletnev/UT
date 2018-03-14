@@ -15,7 +15,7 @@ public class TrianglePositiveTests {
     private Triangle triangle;
 
     @DataProvider(name = "validTriangleProvider")
-    public Object[][] createValidTriangleProviderData() {
+    public Object[][] createValidTriangleData() {
         return new Object[][]
                 {
                         {5.0, 6.5, 7.0, MESSAGE0},
