@@ -60,7 +60,7 @@ public class TrianglePositiveTests {
         this.triangle = new Triangle(a, b, c);
         double p = (a + b + c)/2;
         double expected_square = Math.sqrt(p*(p - a)*(p - b)*(p - c));
-        Assert.assertEquals(triangle.getSquare(), expected_square, 0.0001, "[The square of triangle with sides: a=" + a +
+        Assert.assertEquals(triangle.getSquare(), expected_square, "[The square of triangle with sides: a=" + a +
                 " b=" + b + " c=" + c + " have been calculated incorrectly]");
     }
 }
