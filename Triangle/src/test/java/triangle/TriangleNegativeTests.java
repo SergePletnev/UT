@@ -55,14 +55,16 @@ public class TriangleNegativeTests {
     public void tstDetectTriangle(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
         triangle.detectTriangle();
-        Assert.fail("[No exception have been thrown when detecting invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + "]");
+        Assert.fail("[No exception have been thrown when detecting invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + ". " +
+                "Exception need to be added to method detectTriangle().]");
     }
 
     @Test(expectedExceptions = Exception.class, dataProvider = "negativeTestsProvider")
     public void tstGetSquare(double a, double b, double c, String expected_message) {
         this.triangle = new Triangle(a, b, c);
         triangle.getSquare();
-        Assert.fail("No exception have been thrown when getting square of invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + "]");
+        Assert.fail("No exception have been thrown when getting square of invalid triangle with sides: a=" + a + " b=" + b + " c=" + c + "" +
+                "Exception need to be added to method getSquare().]");
     }
 
 }
